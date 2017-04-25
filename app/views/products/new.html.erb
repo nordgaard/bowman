@@ -1,0 +1,7 @@
+<h1>Create a New Product</h1>
+<%= form_tag "/products", method: :post do %>
+    <%= text_field_tag :name %>
+    <%= text_area_tag :description %>
+    <%= text_area_tag :price %>
+    <%= submit_tag "Create Product" %>
+<% end %>
