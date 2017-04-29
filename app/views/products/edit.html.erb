@@ -1,7 +1,13 @@
+<h1><%= @product.name %> </h1>	
+<div>
+    Current Price: <%=  @product.price %> <br>
+    Current Description: <%=  @product.description %>
+</div>
+
 <h1>Edit</h1>
 <%= form_tag "/products", method: :post do %>
-    <%= text_field_tag :name %>
-    <%= text_area_tag :description %>
-    <%= text_area_tag :price %>
-    <%= submit_tag "Create Product" %>
+    New Name<%= text_field_tag :name %><br>
+    New Description <%= text_area_tag :description %><br>
+    New Price <%= text_area_tag :price %><br>
+    <%= submit_tag "Update Product" %>
 <% end %>
