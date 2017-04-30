@@ -1,9 +1,32 @@
-<% @products.each do |product| %>
+<h1>Bowman Leather</h1>
 
-    <div>
-        Name: <%= product.name %> <br>
-        Description: <%=  product.description %><br>
-        Price: <%= product.price %>
-    </div><br>
+<a href="/products?sort=price">Sort by Price ||</a>
+<a href="/products?sort=price DESC">Sort by Descending Price ||</a>
+<a href="/products?sort=name">Sort by Name ||</a>
+<a href="/products?sort=discount">Discount Items ||</a>
+<a href="/products/random">Random Items</a>
 
-<% end %>
+<%= form_tag "/search", method: :post do %>
+<%= label_tag :user_search, "Search" %>
+<%= text_field_tag :user_search %>
+<%= submit_tag "Search" %>
+    <% end %>
+
+
+
+<div class="row">
+  <% @products.each do |product| %>
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <a href="/products/<%= product.id %>">
+        <p><%= product.name %></p>
+        <p><%= product.description %></p>
+        <p><%= product.price %></p>
+        <div>
+        <p>I'm a picture!</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <% end %>
+</div>

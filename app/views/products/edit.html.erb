@@ -1,13 +1,37 @@
-<h1><%= @product.name %> </h1>	
-<div>
-    Current Price: <%=  @product.price %> <br>
-    Current Description: <%=  @product.description %>
-</div>
+<h1>Update <%= @product.name %> </h1>	
+ 
+ 
+<%= form_tag "/products/#{@product.id}", method: :patch do %>
+ 
+   <div>
+     <%= label_tag :name %>
+     <%= text_field_tag :name %>
+   </div>
+   <div>
+     <%= label_tag :price %>
+     <%= text_field_tag :price %>
+   </div>
+    <div>
+     <%= label_tag :description %>
+     <%= text_field_tag :description, @product.description %>
+   </div>
 
-<h1>Edit</h1>
-<%= form_tag "/products", method: :post do %>
-    New Name<%= text_field_tag :name %><br>
-    New Description <%= text_area_tag :description %><br>
-    New Price <%= text_area_tag :price %><br>
-    <%= submit_tag "Update Product" %>
-<% end %>
+    <%= form_for @product, url: products_path, html: { multipart: true } do |form| %>
+      <%= form.file_field :avatar %>
+    <% end %>
+
+<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+
+   <div>
+     <%= label_tag :image_url %>
+     <%= text_field_tag :image_url%>
+   </div>
+   <%= submit_tag "Update product" %>
+ 
+
+
+
+ <% end %> 

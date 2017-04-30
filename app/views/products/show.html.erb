@@ -1,5 +1,17 @@
- <h1><%= @product.name %> </h1>	
-<div>
-    Price: <%=  @product.price %> <br>
-    Description: <%=  @product.description %>
-</div>
+  <h1>Product Details</h1>
+
+<p>Name: <%= @product.name %></p>
+
+
+  <h1>Add this Car to Your Cart!</h1>
+  <%= form_tag "/carted_products", method: :post do %>
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity %>
+  </div>
+  <%= hidden_field_tag :product_id, @product.id %>
+  <%= submit_tag "Add To Cart" %>
+  <% end %>
+
+  <%= link_to "Destroy", "/products/#{@product.id}", method: :delete %>
+  <%= link_to "Update", "/products/#{@product.id}/edit", method: :get %>

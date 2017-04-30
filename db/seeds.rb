@@ -8,4 +8,5 @@
 
 
 Product.create(name: "Belt", description: "Long, leather, brown", price: 15)
-Product.create(name: "Bracelet", description: "Short, leather, black", price: 5)
+Product.create(name: "Bracelet", description: "Short, leather, black", price: 10)
+Product.create(name: "Necklace", description: "Suede", price: 5)
